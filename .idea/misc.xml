@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/bg_items.xml" value="0.151" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/bg_titles.xml" value="0.151" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/dialog_rounded.xml" value="0.151" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_bookmark.xml" value="0.179" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_favorite.xml" value="0.184" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_favorite_border.xml" value="0.151" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_favorite_fill.xml" value="0.184" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_play.xml" value="0.179" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_refresh.xml" value="0.179" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_star.xml" value="0.179" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/drawable/ic_star2.xml" value="0.179" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/adapter_favorite.xml" value="0.33" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/adapter_genre.xml" value="0.67" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/adapter_movie.xml" value="0.33" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/fragment_favorites.xml" value="0.25" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/fragment_movie_detail.xml" value="0.25" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/fragment_my_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/fragment_to_watch.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/fragment_watched.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/nav_header.xml" value="0.2891566265060241" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/layout/network_state_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/menu/drawer_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Workspace/Android/MovieMan/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_items.xml" value="0.209375" />
+        <entry key="app/src/main/res/drawable/bg_nav_selected.xml" value="0.209375" />
+        <entry key="app/src/main/res/drawable/bg_titles.xml" value="0.209375" />
+        <entry key="app/src/main/res/drawable/bg_triler.xml" value="0.1925925925925926" />
+        <entry key="app/src/main/res/drawable/dialog_rounded.xml" value="0.1925925925925926" />
+        <entry key="app/src/main/res/drawable/ic_discover.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_play.xml" value="0.1925925925925926" />
+        <entry key="app/src/main/res/drawable/ic_star.xml" value="0.209375" />
+        <entry key="app/src/main/res/drawable/ic_star2.xml" value="0.209375" />
+        <entry key="app/src/main/res/layout-v26/bottom_sheet_details.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_movie.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/adapter_movie.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/bottom_sheet_details.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_discover.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/fragment_movie.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_my_list.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/fragment_tv.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.19322916666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

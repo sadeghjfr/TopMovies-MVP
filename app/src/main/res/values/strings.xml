@@ -1,0 +1,19 @@
+<resources>
+
+  <string name="app_name">TopMovies</string>
+  <string name="favorites">Favorites</string>
+  <string name="home">Home</string>
+  <string name="setting">Settings</string>
+  <string name="about">About</string>
+  <string name="rating">Rate us</string>
+  <string name="share">Share</string>
+  <string name="explore">Explore</string>
+  <string name="find_fav_movie">Let\'s find your favorite movie</string>
+  <string name="search">Search…</string>
+  <string name="error">Please check internet connection</string>
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="watched">Watched</string>
+  <string name="delete">Delete</string>
+
+</resources>
