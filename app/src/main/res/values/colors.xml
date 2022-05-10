@@ -7,6 +7,7 @@
   <color name="colorSecondary">#FF03DAC5</color>
   <color name="colorSecondaryVariant">#FF018786</color>
   <color name="black">#000</color>
+  <color name="green">#00aa00</color>
   <color name="white">#FFF</color>
   <color name="bg_layout">#212121</color>
   <color name="colorHint">#7f7f7f</color>

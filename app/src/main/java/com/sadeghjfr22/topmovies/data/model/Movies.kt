@@ -20,4 +20,6 @@ data class Movies(@PrimaryKey(autoGenerate = false)
                   val imdb_votes : String,
                   val type : String,
                   val genres : ArrayList<String>,
-                  var watched: Boolean)
+                  var watched: Boolean,
+                  var showCheckBox: Boolean,
+                  var checked: Boolean)

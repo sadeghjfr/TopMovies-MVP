@@ -5,9 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.*
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.sadeghjfr22.fooddelivery.utils.State
@@ -17,8 +16,9 @@ import com.sadeghjfr22.topmovies.databinding.FragmentFavoritesBinding
 import com.sadeghjfr22.topmovies.ui.base.BaseFragment
 import com.sadeghjfr22.topmovies.ui.base.BasePresenterImpl
 import com.sadeghjfr22.topmovies.ui.base.BaseView
+import kotlinx.coroutines.launch
 
-open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>>(), FavoritesView {
+ class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>>(), FavoritesView {
 
     lateinit var binding: FragmentFavoritesBinding
     private var favorites = ArrayList<Movies>()
@@ -34,11 +34,15 @@ open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>
         binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         showProgress()
         setup()
-        getAllFavorites()
+        getAllFavorites(false)
 
         binding.tabLayout.addOnTabSelectedListener(object : OnTabSelectedListener {
 
             override fun onTabSelected(tab: TabLayout.Tab) {
+
+                binding.lytDelete.isVisible = false
+                binding.chbCheckAll.isChecked = false
+                favoriteAdapter.hideAllBoxes()
 
                 if (tab.position == 0)
                     setAdapter(getToWatchMovies())
@@ -51,10 +55,22 @@ open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>
 
         binding.btnBackFav.setOnClickListener { onBackPressed(it) }
 
+        binding.btnDeleteAllFav.setOnClickListener { setItemCheckboxVisibility() }
+
+        binding.chbCheckAll.setOnCheckedChangeListener { compoundButton, checked ->
+
+            if (checked)
+                favoriteAdapter.checkAllBoxes()
+            else
+                favoriteAdapter.unCheckAllBoxes()
+        }
+
+        binding.btnDeleteSelectedItems.setOnClickListener { deleteSelectedItems(favoriteAdapter.movies) }
+
         return binding.root
     }
 
-    private fun getAllFavorites(){
+    private fun getAllFavorites(loadWatchedList: Boolean){
 
         presenter.getAllFavorites().observe(viewLifecycleOwner, {
 
@@ -72,7 +88,10 @@ open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>
                         favorites.addAll(resource.data as ArrayList<Movies>)
                         hideProgress()
                         showError(false, "")
-                        setAdapter(getToWatchMovies())
+                        if (loadWatchedList)
+                            setAdapter(getWatchedMovies())
+                        else
+                            setAdapter(getToWatchMovies())
                     }
 
                     State.ERROR -> {
@@ -94,7 +113,7 @@ open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>
         else
             showError(false, "")
 
-        favoriteAdapter = FavoriteAdapter(presenter, movies)
+        favoriteAdapter = FavoriteAdapter(presenter, movies, requireContext())
         binding.rvFavorites.adapter = favoriteAdapter
     }
 
@@ -118,12 +137,52 @@ open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>
         return watchedList
     }
 
+    private fun setItemCheckboxVisibility(){
+
+        if (favoriteAdapter.movies.size>0){
+
+            if (favoriteAdapter.movies.get(0).showCheckBox){
+
+                binding.lytDelete.isVisible = false
+                favoriteAdapter.hideAllBoxes()
+            }
+
+            else {
+
+                binding.lytDelete.isVisible = true
+                favoriteAdapter.showAllBoxes()
+            }
+
+        }
+
+    }
+
+    private fun deleteSelectedItems(items: ArrayList<Movies>){
+
+        for (item in items)
+
+            if (item.checked){
+
+                viewLifecycleOwner.lifecycleScope.launch {
+                    presenter.deleteFromFavorites(item)
+                }
+            }
+
+        if (items.get(0).watched)
+            getAllFavorites(true)
+
+        else
+            getAllFavorites(false)
+
+        binding.lytDelete.isVisible = false
+
+    }
+
     override fun setup() {
 
         presenter = FavoritesPresenterImpl(getDatabase(requireContext()).favoritesDao())
         presenter.attachView(this)
-        favoriteAdapter = FavoriteAdapter(presenter, arrayListOf())
-
+        favoriteAdapter = FavoriteAdapter(presenter, arrayListOf(), requireContext())
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("To Watch"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Watched"))
 
@@ -134,6 +193,7 @@ open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>
             addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
             adapter = favoriteAdapter
         }
+
     }
 
     override fun showError(visibility: Boolean, msg: String) {
@@ -149,6 +209,5 @@ open class FavoritesFragment: BaseFragment<BaseView, BasePresenterImpl<BaseView>
     override fun hideProgress() {
         binding.spinKitFav.isVisible = false
     }
-
 
 }

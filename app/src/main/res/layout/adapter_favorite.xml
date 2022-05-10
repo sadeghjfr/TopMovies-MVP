@@ -8,6 +8,15 @@
   android:layout_height="wrap_content"
   android:orientation="horizontal">
 
+  <CheckBox
+    android:id="@+id/chbDelete"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:minWidth="0dp"
+    android:minHeight="0dp"
+    android:visibility="gone" />
+
   <androidx.cardview.widget.CardView
     android:id="@+id/cardView"
     android:layout_width="wrap_content"
@@ -113,10 +122,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:letterSpacing="0"
-        app:cornerRadius="@dimen/_5sdp"
-        app:icon="@drawable/ic_done"
         android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-        android:text="@string/watched" />
+        app:cornerRadius="@dimen/_5sdp" />
 
     </LinearLayout>
 

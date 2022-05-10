@@ -9,7 +9,7 @@ import com.sadeghjfr22.topmovies.data.local.dao.FavoritesDao
 import com.sadeghjfr22.topmovies.data.model.GenreConverter
 import com.sadeghjfr22.topmovies.data.model.Movies
 
-@Database(entities = [Movies::class], version = 1)
+@Database(entities = [Movies::class], version = 3)
 @TypeConverters(GenreConverter::class)
 abstract class AppDatabase: RoomDatabase() {
 
